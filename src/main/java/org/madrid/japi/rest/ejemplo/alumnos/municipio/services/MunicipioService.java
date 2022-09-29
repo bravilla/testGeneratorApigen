@@ -11,6 +11,6 @@ import org.madrid.japi.rest.ejemplo.alumnos.municipio.dtos.GetMunicipiosIdProvin
 
 public interface MunicipioService extends BaseService<Municipio, MunicipioEmbeddedId, MunicipioDAO> {
     GetMunicipiosIdProvinciaIdProvinciaIdMunicipioOutputDTO getMunicipiosIdProvinciaIdProvinciaIdMunicipio(
-        MunicipioEmbeddedId idProvincia, Set<String> select, Set<String> exclude, Set<String> expand) throws
-            ServiceException, JapiException;
+            MunicipioEmbeddedId id, Set<String> select, Set<String> exclude, Set<String> expand)
+            throws ServiceException, JapiException;
 }

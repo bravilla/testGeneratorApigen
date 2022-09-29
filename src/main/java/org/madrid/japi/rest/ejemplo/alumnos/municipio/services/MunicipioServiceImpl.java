@@ -29,14 +29,13 @@ public class MunicipioServiceImpl extends JapiBaseServiceImpl<Municipio, Municip
 
     @Override
     public GetMunicipiosIdProvinciaIdProvinciaIdMunicipioOutputDTO getMunicipiosIdProvinciaIdProvinciaIdMunicipio(
-        MunicipioEmbeddedId idProvincia, Set<String> select, Set<String> exclude, Set<String> expand) throws
-            ServiceException, JapiException {
+            MunicipioEmbeddedId id, Set<String> select, Set<String> exclude, Set<String> expand)
+            throws ServiceException, JapiException {
         // Convierte las variables pasadas como querystring o en el body a variables que hacen referencia a la base de datos
         List<String> selectEntityNames = JsonToEntityUtils.traslateFields(GetMunicipiosIdProvinciaIdProvinciaIdMunicipioOutputDTO.class, select, exclude, expand);
-        // TODO-JAPI: el campo por el que se intenta filtrar no se ha mapeado por lo que se ha dejado como "id" 
         // Se define un filtro propio
         List<CoreJpaFilter> filters = new ArrayList<>();
-        filters.add(CoreJpaFilter.equal("id", idProvincia));
+        filters.add(CoreJpaFilter.equal("id", id));
 
         // Preparamos la llamada al servicio para hacer la consulta a BBDD
 
